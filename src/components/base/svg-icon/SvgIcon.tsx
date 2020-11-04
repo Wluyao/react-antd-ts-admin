@@ -1,30 +1,6 @@
 import React from 'react'
 import Icon from '@ant-design/icons'
-import { tupleStr } from '@/utils/tuple'
-import Article from '@/assets/icons/article.svg'
-import Blank from '@/assets/icons/blank.svg'
-import Chart from '@/assets/icons/chart.svg'
-import Form from '@/assets/icons/form.svg'
-import Home from '@/assets/icons/home.svg'
-import User from '@/assets/icons/user.svg'
-
-const ICON_NAME_MAP = {
-  article: Article,
-  blank: Blank,
-  chart: Chart,
-  form: Form,
-  home: Home,
-  user: User
-}
-
-const iconNames = tupleStr(
-  'article',
-  'blank',
-  'chart',
-  'form',
-  'home',
-  'user'
-)
+import { ICON_NAME_MAP, iconNames } from '@/assets/icons'
 
 export type IconName = typeof iconNames[number]
 

@@ -17,8 +17,6 @@ export const guid = (): string => {
   return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
 }
 
-
-
 /**
  * 获取url中的查询字符串参数
  */
@@ -35,7 +33,7 @@ export const getURLParams = (url: string): any => {
 }
 
 /**
- * 用于需要在get请求中传递数组的情况
+ * 序列化请求参数
  */
 
 export function paramsSerializer(params = {}) {
@@ -48,7 +46,8 @@ export function paramsSerializer(params = {}) {
         paramArr.push(`${encodeURIComponent(key)}=${encodeURIComponent(item)}`)
       )
     } else {
-      paramArr.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      // 剔除null和undefined值
+      value != null && paramArr.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     }
   }
   return paramArr.join('&')
@@ -117,4 +116,47 @@ export const getCommaNumber = (value: any) => {
   }
   const listSecond = list[1] ? '.' + list[1] : ''
   return `${prefix}${result}${listSecond}`
+}
+
+// 方便生成联合类型
+export const tupleStr = <T extends string[]>(...args: T) => args
+
+export const tupleNum = <T extends number[]>(...args: T) => args
+
+/**
+ * 延迟执行async函数的一部分, 将其放入休眠状态, 返回Promise。
+ * @param {Number} interval  阻塞的时间 ms
+ * @example
+```
+async function test() {
+  console.log('Hello')
+  await sleep(1000)
+  console.log('world!')
+}
+```
+ */
+export function sleep(interval: number) {
+  return new Promise((resolve) => setTimeout(resolve, interval))
+}
+
+/**
+ * 十六进制颜色值转换为rgb
+ * @example
+```
+hexToRgb('#27ae60') //'rgb(39, 174, 96,1)'
+hexToRgb('#acd', 0.5) // 'rgb(170, 204, 221, 0.5)'
+```
+ */
+export function hexToRgb(hex: string, opacity: number = 1) {
+  const extendHex = (shortHex: string) =>
+    '#' +
+    shortHex
+      .slice(shortHex.startsWith('#') ? 1 : 0)
+      .split('')
+      .map((x) => x + x)
+      .join('')
+  const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
+  return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${
+    (parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8
+  }, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff}, ${opacity})`
 }

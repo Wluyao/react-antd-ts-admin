@@ -2,18 +2,21 @@ import { observable, action } from 'mobx'
 import { IUserInfo } from '@/model/common'
 class AccountStore {
   // token
-  @observable token: string = sessionStorage.getItem('token') || ''
+  @observable
+  token: string = sessionStorage.getItem('token') || ''
+
   // 账户信息
-  @observable accountInfo: IUserInfo = { roles: [], permission: [] }
+  @observable
+  accountInfo: IUserInfo = { roles: [], permission: [] }
 
   @action
-  public setToken(value: string) {
+  setToken(value: string) {
     this.token = value
     sessionStorage.setItem('token', value)
   }
 
   @action
-  public setAccountInfo(value: IUserInfo) {
+  setAccountInfo(value: IUserInfo) {
     this.accountInfo = value
   }
 }

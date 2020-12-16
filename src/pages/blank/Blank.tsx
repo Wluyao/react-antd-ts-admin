@@ -1,10 +1,12 @@
-import React from 'react'
-import Icon from '@/components/base/svg-icon'
+import React, { useState, useCallback } from 'react'
 
 
+import './style.less'
 
-const SvgC: React.FC = () => {
-  return <Icon name="article"  color="red"/>
+const Blank: React.FC = () => {
+  return (
+    <div></div>
+  )
 }
 
-export default SvgC
+export default Blank

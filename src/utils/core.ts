@@ -17,11 +17,7 @@ export const guid = (): string => {
   return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
 }
 
-var _i = 1
-export const getUniqueKeyNumber = (len: number = 8): number => {
-  var _loadTime = new Date().getTime()
-  return _loadTime + _i++
-}
+
 
 /**
  * 获取url中的查询字符串参数

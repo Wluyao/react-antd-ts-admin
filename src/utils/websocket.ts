@@ -38,7 +38,7 @@ class WebsocketManager {
   }
  
   // 关闭连接
-  closeConnect() {
+  close() {
     if (this.websocket) {
       this.websocket.close()
     }
@@ -127,7 +127,16 @@ enum SocketEvents {
 
 /**
  * @example
+ ```
+ // 根组件建立连接
+useEffect(() => {
+		webSocketManager.create()
+		return webSocketManager.close
+}, [])
+ ```
+
 ```
+// 具体地方使用
 useEffect(() => {
   const removeHandler = webSocketManager.addEventHandler(socketEvent => {
 		const { event, data } = socketEvent

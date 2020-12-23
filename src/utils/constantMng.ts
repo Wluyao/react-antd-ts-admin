@@ -1,5 +1,5 @@
 // 系统常量管理
-import { tupleStr } from '@/utils/tuple'
+import { tupleStr } from '@/utils/core'
 
 interface IItem {
   id: number

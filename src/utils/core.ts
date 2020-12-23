@@ -18,6 +18,15 @@ export const guid = (): string => {
 }
 
 /**
+ * 生成number类型的id
+ */
+let _guidCount = 1
+export const guidNumber = (): number => {
+  const loadTime = new Date().getTime()
+  return loadTime + _guidCount++
+}
+
+/**
  * 获取url中的查询字符串参数
  */
 export const getURLParams = (url: string): any => {

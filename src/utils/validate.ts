@@ -1,4 +1,4 @@
-import { tupleStr } from '@/utils/tuple'
+import { tupleStr } from '@/utils/core'
 
 const Types = tupleStr(
   'mobile',

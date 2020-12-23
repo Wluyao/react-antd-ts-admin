@@ -1,4 +1,4 @@
-import { tupleStr } from '@/utils/tuple'
+import { tupleStr } from '@/utils/core'
 import Article from './article.svg'
 import Blank from './blank.svg'
 import Chart from './chart.svg'
@@ -16,4 +16,3 @@ export const ICON_NAME_MAP = {
 }
 
 export const iconNames = tupleStr('article', 'blank', 'chart', 'form', 'home', 'user')
-

@@ -1,14 +1,6 @@
 import { tupleStr } from '@/utils/core'
 
-const Types = tupleStr(
-  'mobile',
-  'email',
-  'IDCard',
-  'min',
-  'max',
-  'required',
-  'pattern'
-)
+const Types = tupleStr('mobile', 'email', 'IDCard')
 
 type Type = typeof Types[number]
 
@@ -22,10 +14,12 @@ interface IValidator {
 interface IRule {
   // 错误提示信息
   message: string
-  // 是否必填
-  required?: boolean
   // 策略类型
-  type: Type
+  type?: Type
+  required?: boolean
+  min?: number
+  max?: number
+  pattern?: RegExp
 }
 
 // interface IRules {
@@ -80,13 +74,14 @@ function addValidator(value: any, rules: IRule[]) {
   rules.forEach((rule) => {
     const message = rule.message
     delete rule.message
-    let strategy = Object.keys(rule)[0]
-    if (!strategy) {
-      throw new Error('缺少校验类型')
-    }
+    let strategy: string | undefined = Object.keys(rule)[0]
 
     if (strategy === 'type') {
       strategy = rule.type
+    }
+
+    if (!strategy) {
+      throw new Error('缺少校验类型')
     }
 
     if (!Object.keys(strategies).includes(strategy)) {

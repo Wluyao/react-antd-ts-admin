@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu } from 'antd'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { IRoute } from '@/router/innerRouter'
-import SvgIcon from '@/components/base/svg-icon'
+import Icon from '@/components/base/icon'
 import logo from '@/assets/images/logo.png'
 import NavLink from './NavLink'
 import './style.less'
@@ -47,7 +47,7 @@ const SiderBar: React.FC<IProps> = ({ routeMap }) => {
 
     if (children) {
       return (
-        <Menu.SubMenu key={path + ''} icon={icon ? <SvgIcon name={icon} /> : null} title={title}>
+        <Menu.SubMenu key={path + ''} icon={icon ? <Icon name={icon} /> : null} title={title}>
           {children.map((route: IRoute) => getMenuItem(route))}
         </Menu.SubMenu>
       )

@@ -1,5 +1,5 @@
 import { RouteProps } from 'react-router-dom'
-import { IconName } from '@/components/base/svg-icon'
+import { IconName } from '@/components/base/icon'
 // 主要是继承RouteProps的path，exact和component来使用
 export default interface IRoute extends RouteProps {
   // name供权限管理使用

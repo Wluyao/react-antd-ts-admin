@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import PageLoading from '@/components/pageLoading'
-import constantMng from '@/utils/constantMng'
+import constantMng from '@/utils/constant-mng'
 import accountStore from '@/store/account'
 import service from '@/service'
 

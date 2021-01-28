@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SvgIcon, { IconName } from '@/components/base/svg-icon'
+import Icon, { IconName } from '@/components/base/icon'
 
 interface IProps {
   path: string
@@ -11,7 +11,7 @@ interface IProps {
 const NavLink: React.FC<IProps> = ({ path, icon, title }) => {
   return (
     <Link to={path}>
-      {icon ? <SvgIcon name={icon} /> : null}
+      {icon ? <Icon name={icon} /> : null}
       <span>{title}</span>
     </Link>
   )

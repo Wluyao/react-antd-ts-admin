@@ -4,8 +4,7 @@
  * @param {Number} max 最大数
  * @return {Number}
  */
-export const randomNum = (min: number, max: number): number =>
-  Math.floor(min + Math.random() * (max - min + 1))
+export const randomNum = (min: number, max: number): number => Math.floor(min + Math.random() * (max - min + 1))
 
 /**
  * 生成guid
@@ -35,9 +34,7 @@ export const getURLParams = (url: string): any => {
     return {}
   }
   return JSON.parse(
-    '{"' +
-      decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') +
-      '"}'
+    '{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}'
   )
 }
 
@@ -51,9 +48,7 @@ export function paramsSerializer(params = {}) {
   let value: any
   for ([key, value] of Object.entries(params)) {
     if (Array.isArray(value)) {
-      value.forEach((item) =>
-        paramArr.push(`${encodeURIComponent(key)}=${encodeURIComponent(item)}`)
-      )
+      value.forEach((item) => paramArr.push(`${encodeURIComponent(key)}=${encodeURIComponent(item)}`))
     } else {
       // 剔除null和undefined值
       value != null && paramArr.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
@@ -66,11 +61,7 @@ export function paramsSerializer(params = {}) {
  * 判断数据类型
  */
 export const getType = (value: any): any => {
-  return value === undefined
-    ? 'undefined'
-    : value === null
-    ? 'null'
-    : value.constructor.name.toLowerCase()
+  return value === undefined ? 'undefined' : value === null ? 'null' : value.constructor.name.toLowerCase()
 }
 
 /**
@@ -144,9 +135,7 @@ async function test() {
 }
 ```
  */
-export function sleep(interval: number) {
-  return new Promise((resolve) => setTimeout(resolve, interval))
-}
+export const sleep = (interval: number) => new Promise((resolve) => setTimeout(resolve, interval))
 
 /**
  * 十六进制颜色值转换为rgb
@@ -156,7 +145,7 @@ hexToRgb('#27ae60') //'rgb(39, 174, 96,1)'
 hexToRgb('#acd', 0.5) // 'rgb(170, 204, 221, 0.5)'
 ```
  */
-export function hexToRgb(hex: string, opacity: number = 1) {
+export const hexToRgb = (hex: string, opacity: number = 1) => {
   const extendHex = (shortHex: string) =>
     '#' +
     shortHex
@@ -165,7 +154,21 @@ export function hexToRgb(hex: string, opacity: number = 1) {
       .map((x) => x + x)
       .join('')
   const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
-  return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${
-    (parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8
-  }, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff}, ${opacity})`
+  return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8}, ${
+    parseInt(extendedHex.slice(1), 16) & 0x0000ff
+  }, ${opacity})`
+}
+
+/**
+ * 等待页面加载完成后执行
+ * @param {*} fn
+ */
+export const documentReady = (fn: (ev?: Event) => any, waitLoaded: boolean = false) => {
+  if (document.readyState !== 'loading') {
+    fn()
+  } else if (waitLoaded) {
+    window.addEventListener('load', fn)
+  } else {
+    document.addEventListener('DOMContentLoaded', fn)
+  }
 }

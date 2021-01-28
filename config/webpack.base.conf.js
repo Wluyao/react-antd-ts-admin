@@ -48,7 +48,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: ['@svgr/webpack', 'url-loader'],
         include: resolve('src/assets/icons')
       },
       {

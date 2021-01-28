@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Divider, Input, Row, Col, Modal, Popconfirm, Table } from 'antd'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
-import constantMng from '@/utils/constantMng'
+import constantMng from '@/utils/constant-mng'
 import Edit from './components/Edit'
 import { IUser } from './model'
 import service, { IParams } from './service'

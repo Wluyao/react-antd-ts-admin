@@ -4,7 +4,7 @@ import { Popconfirm, Divider } from 'antd'
 import React from 'react'
 import moment from 'moment'
 import { IColumnProps } from './IColumnProps'
-import constantMng, { GroupName } from '@/utils/constantMng'
+import constantMng, { GroupName } from '@/utils/constant-mng'
 
 enum HandleButtonType {
   'edit' = '编辑',

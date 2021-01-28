@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Drawer, Form, Input, Radio, Checkbox, InputNumber, Button } from 'antd'
 import service from '../service'
-import constantMng from '@/utils/constantMng'
+import constantMng from '@/utils/constant-mng'
 
 const genderList = constantMng.getGroup('gender')
 const roleList: any = constantMng.formatGroup('role', 'value', 'label')

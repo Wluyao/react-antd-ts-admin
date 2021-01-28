@@ -23,13 +23,14 @@
     "mobx": "^5.15.6",
     "mobx-react": "^6.3.0",
     "mockjs": "^1.0.1-beta3",
+    "qiankun": "^2.3.6",
     "react": "^16.8.6",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^4.3.2",
+    "@svgr/webpack": "^5.5.0",
     "@types/react": "^16.8.23",
     "@types/react-custom-scrollbars": "^4.0.6",
     "@types/react-dom": "^16.8.4",

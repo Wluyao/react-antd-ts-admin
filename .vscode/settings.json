@@ -7,7 +7,7 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "prettier.printWidth": 100,
+  "prettier.printWidth": 120,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

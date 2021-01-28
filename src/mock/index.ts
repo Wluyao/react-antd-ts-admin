@@ -1,8 +1,8 @@
 import Mock from 'mockjs'
 
-import account from './module/account'
-import baseTable from './module/baseTable'
-import user from './module/user'
+import account from './modules/account'
+import baseTable from './modules/baseTable'
+import user from './modules/user'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300

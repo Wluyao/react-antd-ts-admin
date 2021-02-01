@@ -5,9 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const resolve = (dir) => {
-  return path.resolve(process.cwd(), dir)
-}
+const resolve = (dir) => path.resolve(process.cwd(), dir)
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
@@ -79,10 +77,7 @@ module.exports = merge(baseWebpackConfig, {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: [
-                resolve('src/assets/styles/variable.less'),
-                resolve('src/assets/styles/mixin.less')
-              ]
+              resources: [resolve('src/assets/styles/variable.less'), resolve('src/assets/styles/mixin.less')]
             }
           }
         ]

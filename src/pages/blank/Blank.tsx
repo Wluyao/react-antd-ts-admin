@@ -7,8 +7,6 @@ const Blank: React.FC = () => {
   return (
     <div className="title">
       <p>ffff</p>
-      <Icon name="article" />
-      <Icon name="money" mode="colour" />
     </div>
   )
 }

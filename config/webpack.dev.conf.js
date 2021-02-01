@@ -4,6 +4,8 @@ const baseWebpackConfig = require('./webpack.base.conf.js')
 const webpack = require('webpack')
 // const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
+const resolve = (dir) => path.resolve(process.cwd(), dir)
+
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
   plugins: [
@@ -52,10 +54,7 @@ module.exports = merge(baseWebpackConfig, {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: [
-                path.resolve(__dirname, '../src/assets/styles/variable.less'),
-                path.resolve(__dirname, '../src/assets/styles/mixin.less')
-              ]
+              resources: [resolve('src/assets/styles/variable.less'), resolve('src/assets/styles/mixin.less')]
             }
           }
         ]

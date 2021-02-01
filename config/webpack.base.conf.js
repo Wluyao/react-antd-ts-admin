@@ -3,9 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const resolve = (dir) => {
-  return path.resolve(process.cwd(), dir)
-}
+const resolve = (dir) => path.resolve(process.cwd(), dir)
 
 module.exports = {
   entry: {

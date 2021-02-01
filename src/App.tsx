@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import PageLoading from '@/components/pageLoading'
+import PageLoading from '@/components/base/page-loading'
 import constantMng from '@/utils/constant-mng'
-import accountStore from '@/store/account'
 import service from '@/service'
 
-const OuterLayout = React.lazy(
-  () => import(/* webpackChunkName:"outer-layout" */ '@/layouts/outerLayout')
-)
-const InnerLayout = React.lazy(
-  () => import(/* webpackChunkName:"inner-layout" */ '@/layouts/innerLayout')
-)
+const OuterLayout = React.lazy(() => import(/* webpackChunkName:"outer-layout" */ '@/layouts/outerLayout'))
+const InnerLayout = React.lazy(() => import(/* webpackChunkName:"inner-layout" */ '@/layouts/innerLayout'))
 
 const App: React.FC = () => {
   // 初始化常量表

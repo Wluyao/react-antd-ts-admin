@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Switch, Route, RouteProps } from 'react-router-dom'
-import PageLoading from '@/components/pageLoading'
+import PageLoading from '@/components/base/page-loading'
 import IRoute from './IRoute'
 
 interface IProps {

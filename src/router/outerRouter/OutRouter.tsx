@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { Switch, Route, RouteProps } from 'react-router-dom'
-import PageLoading from '@/components/pageLoading'
+import PageLoading from '@/components/base/page-loading'
 
 const Login = lazy(() => import(/* webpackChunkName:"login" */ '@/pages/account/login'))
 const Register = lazy(() => import(/* webpackChunkName:"register" */ '@/pages/account/register'))

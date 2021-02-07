@@ -1,10 +1,10 @@
 import { tupleStr } from '@/utils/core'
-import { ReactComponent as article } from './black/article.svg'
-import { ReactComponent as blank } from './black/blank.svg'
-import { ReactComponent as chart } from './black/chart.svg'
-import { ReactComponent as form } from './black/form.svg'
-import { ReactComponent as home } from './black/home.svg'
-import { ReactComponent as user } from './black/user.svg'
+import { ReactComponent as menuArticle } from './black/menu_article.svg'
+import { ReactComponent as menuBlank } from './black/menu_blank.svg'
+import { ReactComponent as menuChart } from './black/menu_chart.svg'
+import { ReactComponent as menuForm } from './black/menu_form.svg'
+import { ReactComponent as menuHome } from './black/menu_home.svg'
+import { ReactComponent as menuUser } from './black/menu_user.svg'
 import money from './colour/money.svg'
 
 /**
@@ -23,34 +23,34 @@ import money from './colour/money.svg'
  */
 
 interface IBlackIcon {
-  [key: string]: React.FunctionComponent<
-    React.SVGProps<SVGSVGElement> & {
-      title?: string | undefined
-    }
-  >
+    [key: string]: React.FunctionComponent<
+        React.SVGProps<SVGSVGElement> & {
+            title?: string | undefined
+        }
+    >
 }
 
 interface IColourIcon {
-  [key: string]: string
+    [key: string]: string
 }
 
 // 单色图标。key为图标名称，value为本地的图标资源
 export const BLACK_ICON_MAP: IBlackIcon = {
-  article,
-  blank,
-  chart,
-  form,
-  home,
-  user
+    menuArticle,
+    menuBlank,
+    menuChart,
+    menuForm,
+    menuHome,
+    menuUser
 }
 
 // 多色图标
 export const COLOUR_ICON_MAP: IColourIcon = {
-  money
+    money
 }
 
-const blackIconNames = tupleStr('article', 'blank', 'chart', 'form', 'home', 'user')
+// 图标名称类型
+const blackIconNames = tupleStr('menuArticle', 'menuBlank', 'menuChart', 'menuForm', 'menuHome', 'menuUser')
 const colourIconNames = tupleStr('money')
-
 export type BlackIconName = typeof blackIconNames[number]
 export type ColourIconName = typeof colourIconNames[number]

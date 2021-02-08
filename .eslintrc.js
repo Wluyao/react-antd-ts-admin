@@ -1,9 +1,9 @@
 module.exports = {
 	parser: '@typescript-eslint/parser',
 	extends: [
-		'plugin:react/recommended',
-		'plugin:@typescript-eslint/recommended',
 		'prettier/@typescript-eslint',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:react/recommended',
 		'plugin:prettier/recommended'
 	],
 	plugins: ['@typescript-eslint', 'react', 'react-hooks'],
@@ -16,9 +16,9 @@ module.exports = {
 		{
 			files: ['*.ts', '*.tsx'],
 			rules: {
-				'@typescript-eslint/no-unused-vars': [2, { args: 'none' }]
-				// 'no-unused-expressions': 'off',
-				// '@typescript-eslint/no-unused-expressions': 2,
+				'@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
+				'@typescript-eslint/no-unused-expressions': 2,
+				'no-unused-expressions': 'off'
 			}
 		}
 	],
@@ -94,7 +94,7 @@ module.exports = {
 		curly: [2, 'multi-line', 'consistent'], // if 后必须包含 { ，单行 if 除外
 		'for-direction': 2, // for 循环不得因方向错误造成死循环
 		'getter-return': [2, { allowImplicit: true }], // getter 必须有返回值，允许返回 undefined
-		'keyword-spacing': 2, // 关键字前后必须有空格 // new关键字后类名应首字母大写
+		'keyword-spacing': 2, // 关键字前后必须有空格
 		'new-cap': [
 			2,
 			{
@@ -128,9 +128,9 @@ module.exports = {
 		'@typescript-eslint/no-use-before-define': 0, // mapStateToProps在之前就用到(typeof推断类型)
 		'@typescript-eslint/camelcase': 0, // 驼峰命名格式
 		'@typescript-eslint/no-empty-function': 0, // 给函数默认值可以为空
-		'react/display-name': 0, // 一个莫名其妙的Bug
+		'react/display-name': 0,
 		'react/no-find-dom-node': 0,
-		'@typescript-eslint/no-non-null-assertion': 0, // 允许用！断言不为空
+		'@typescript-eslint/no-non-null-assertion': 0, // 允许用断言
 		'@typescript-eslint/no-inferrable-types': 0,
 		'@typescript-eslint/ban-types': 0, // 允许function直接作为类型标识
 		'@typescript-eslint/no-empty-interface': 0,

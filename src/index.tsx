@@ -8,8 +8,8 @@ import '@/assets/styles/app.less'
 import '@/mock'
 
 ReactDOM.render(
-  <ConfigProvider locale={zh_CN}>
-    <App />
-  </ConfigProvider>,
-  document.getElementById('root')
+	<ConfigProvider locale={zh_CN}>
+		<App />
+	</ConfigProvider>,
+	document.getElementById('root')
 )

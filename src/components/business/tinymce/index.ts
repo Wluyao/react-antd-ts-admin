@@ -1,1 +1,1 @@
-export { default } from './Tinymce';
+export { default } from './Tinymce'

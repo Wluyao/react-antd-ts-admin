@@ -1,1 +1,1 @@
-export { default } from './PillarChart';
+export { default } from './PillarChart'

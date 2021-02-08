@@ -1,5 +1,5 @@
-import IRoute from './IRoute';
-import initRoutes from './initRoutes';
+import IRoute from './IRoute'
+import initRoutes from './initRoutes'
 
-export { default } from './InnerRouter';
-export { IRoute, initRoutes };
+export { default } from './InnerRouter'
+export { IRoute, initRoutes }

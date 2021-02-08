@@ -1,1 +1,1 @@
-export { default } from './CustomField';
+export { default } from './CustomField'

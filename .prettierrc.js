@@ -17,4 +17,4 @@ module.exports = {
 	useTabs: true,
 	//  (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号
 	arrowParens: 'avoid'
-};
+}

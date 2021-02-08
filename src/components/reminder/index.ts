@@ -1,1 +1,1 @@
-export { default } from './Reminder';
+export { default } from './Reminder'

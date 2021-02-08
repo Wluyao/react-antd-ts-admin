@@ -15,51 +15,51 @@ interface IData {
 const Role: IItem[] = [
 	{
 		id: 1,
-		name: '管理员',
+		name: '管理员'
 	},
 	{
 		id: 2,
-		name: '游客',
+		name: '游客'
 	},
 	{
 		id: 3,
-		name: '客服',
-	},
+		name: '客服'
+	}
 ]
 
 // 性别
 const Gender: IItem[] = [
 	{
 		id: 1,
-		name: '男',
+		name: '男'
 	},
 	{
 		id: 2,
-		name: '女',
-	},
+		name: '女'
+	}
 ]
 
 // 支付状态
 const PayStatus: IItem[] = [
 	{
 		id: 1,
-		name: '已支付',
+		name: '已支付'
 	},
 	{
 		id: 2,
-		name: '未支付',
+		name: '未支付'
 	},
 	{
 		id: 3,
-		name: '已退款',
-	},
+		name: '已退款'
+	}
 ]
 
 // 所有常量的分组
 const constantGroup: IData = {
 	gender: Gender,
 	role: Role,
-	payStatus: PayStatus,
+	payStatus: PayStatus
 }
 
 // 所有常量分组名称
@@ -96,12 +96,12 @@ export class ConstantMng {
 			return [
 				{
 					id: 9000,
-					name: groupName + '.ID-1',
+					name: groupName + '.ID-1'
 				},
 				{
 					id: 9001,
-					name: groupName + '.ID-2',
-				},
+					name: groupName + '.ID-2'
+				}
 			]
 			// throw new Error(`表“${groupName}”不存在`);
 		}
@@ -173,7 +173,7 @@ export class ConstantMng {
 		const groupList = this.getGroup(groupName)
 		return groupList.map(item => ({
 			[idFiled]: item.id,
-			[nameFiled]: item.name,
+			[nameFiled]: item.name
 		}))
 	}
 }

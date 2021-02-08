@@ -12,21 +12,21 @@ module.exports = {
 		node: false,
 		es6: true
 	},
-	overrides: [
-		{
-			files: ['*.ts', '*.tsx'],
-			rules: {
-				'@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
-				'@typescript-eslint/no-unused-expressions': 2,
-				'no-unused-expressions': 'off'
-			}
-		}
-	],
+	// overrides: [
+	// 	{
+	// 		files: ['*.ts', '*.tsx'],
+	// 		rules: {
+	// 			'@typescript-eslint/no-unused-expressions': 2,
+	// 			'no-unused-expressions': 'off'
+	// 		}
+	// 	}
+	// ],
 	globals: {
 		NodeJS: true,
 		require: true,
 		$request: true,
-		$message: true
+		$message: true,
+		process: true
 	},
 	settings: {
 		// 自动发现React的版本，从而进行规范react代码

@@ -1,1 +1,1 @@
-export { default } from './OutRouter';
+export { default } from './OutRouter'

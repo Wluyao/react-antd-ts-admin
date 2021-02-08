@@ -1,2 +1,2 @@
-export * from "./PagedTable";
-export * from "./ColumnBuilder";
+export * from './PagedTable'
+export * from './ColumnBuilder'

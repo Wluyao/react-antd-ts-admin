@@ -3,73 +3,74 @@
     基于React+AntD+TypeScript的后台管理系统
 
 ## 技术依赖
-- React -（UI 框架）
-- Ant-Design - （组件库）
-- TypeScript - （静态类型）
-- Webpack
-- axios
-- less
 
-[线上地址](https://wluyao.github.io/admin/dist/index.html)  
+-   React -（UI 框架）
+-   Ant-Design - （组件库）
+-   TypeScript - （静态类型）
+-   Webpack
+-   axios
+-   less
+
+[线上地址](https://wluyao.github.io/admin/dist/index.html)
 
 ## 功能
 
-- 登录/退出
+-   登录/退出
 
-- 全屏浏览
+-   全屏浏览
 
-- 一键换肤
+-   一键换肤
 
-- 个人中心
+-   个人中心
 
-- 侧边菜单
+-   侧边菜单
 
-- 标签快捷导航
+-   标签快捷导航
 
-- 图标
+-   图标
 
-- 表单
+-   表单
 
-- 表格
+-   表格
 
-- 图表
+-   图表
 
-  - 折线图
-  - 面积图
-  - 柱状图
-  - 条形图
-  - 饼图
-  - 散点图
+    -   折线图
+    -   面积图
+    -   柱状图
+    -   条形图
+    -   饼图
+    -   散点图
 
-- 地图
-- Tab选项卡
+-   地图
+-   Tab 选项卡
 
-- 上传/导出Excel
+-   上传/导出 Excel
 
-- 用户管理
+-   用户管理
 
-- 文章管理
-  - 创建文章
-  - 文章列表
-  - 草稿箱
-  - 垃圾箱
+-   文章管理
 
-- 上传
-  - 头像上传
-  - 文件上传
+    -   创建文章
+    -   文章列表
+    -   草稿箱
+    -   垃圾箱
 
-- 错误处理
-  - 403
-  - 404
+-   上传
 
-- 组件
-  - 可编辑的树
-  - 
+    -   头像上传
+    -   文件上传
 
-##  项目截图
+-   错误处理
 
+    -   403
+    -   404
 
+-   组件
+    -   可编辑的树
+    -
 
+## 项目截图
 
 ## 目录结构
 
@@ -101,8 +102,6 @@
 |-- tsconfig.json						TypeScript配置
 ```
 
-
-
 ## 使用
 
 ### 运行
@@ -112,10 +111,9 @@ npm run start
 yarn start
 ```
 
-###  构建
+### 构建
 
 ```
 npm run build
 yarn build
 ```
-

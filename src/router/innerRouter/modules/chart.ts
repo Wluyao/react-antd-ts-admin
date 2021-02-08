@@ -2,7 +2,7 @@
 import { lazy } from 'react'
 import IRoute from '../IRoute'
 
-const LineChart = lazy(() => import(/* webpackChunkName:"lineChart" */ '@/pages/chart/lineChart'))
+const LineChart = lazy(() => import(/* webpackChunkName:"lineChart" */ '@/pages/chart/line-chart'))
 const AreaChart = lazy(() => import(/* webpackChunkName:"areaChart" */ '@/pages/chart/area-chart'))
 const PieChart = lazy(() => import(/* webpackChunkName:"pieChart" */ '@/pages/chart/pieChart'))
 const PillarChart = lazy(() => import(/* webpackChunkName:"pillarChart" */ '@/pages/chart/pillarChart'))

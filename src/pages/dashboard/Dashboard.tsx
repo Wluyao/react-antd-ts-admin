@@ -1,10 +1,10 @@
-import React from "react";
-import "./style.less";
+import React from 'react'
+import './style.less'
 
 class Dashboard extends React.Component {
-  public render() {
-    return <div style={{ backgroundColor: "#fff" }}>ppp</div>;
-  }
+	public render() {
+		return <div style={{ backgroundColor: '#fff' }}>ppp</div>
+	}
 }
 
-export default Dashboard;
+export default Dashboard

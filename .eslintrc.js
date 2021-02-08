@@ -25,7 +25,8 @@ module.exports = {
 	globals: {
 		NodeJS: true,
 		require: true,
-		'$request':true,
+		$request: true,
+		$message: true
 	},
 	settings: {
 		// 自动发现React的版本，从而进行规范react代码
@@ -135,6 +136,7 @@ module.exports = {
 		'no-func-assign': 2, // 禁止对函数声明重新赋值
 		'no-implied-eval': 2, // 禁止在 setTimeout 和 setInterval 中传入字符串，因会触发隐式 eval
 		'no-multi-assign': 2, // 禁止连等赋值
+		'react/prop-types': 0, // 在TS中可以禁掉，不然函数式组件需要这样写 const Com: React.FC<IProps> = (props:IProps)=>{}
 		'@typescript-eslint/explicit-function-return-type': [
 			'off',
 			{
@@ -152,9 +154,9 @@ module.exports = {
 		'react/no-find-dom-node': 0,
 		'@typescript-eslint/no-non-null-assertion': 0, // 允许用断言
 		'@typescript-eslint/no-inferrable-types': 0,
-		'@typescript-eslint/ban-types': 0,       // 允许function直接作为类型标识
+		'@typescript-eslint/ban-types': 0, // 允许function直接作为类型标识
 		'@typescript-eslint/no-empty-interface': 0,
 		'@typescript-eslint/prefer-as-const': 0,
-		'@typescript-eslint/explicit-module-boundary-types': 'off'  	// ts每个函数都要显式声明返回值
+		'@typescript-eslint/explicit-module-boundary-types': 'off' // ts每个函数都要显式声明返回值
 	}
 }

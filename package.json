@@ -13,14 +13,13 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged"
+			"pre-commit": "pretty-quick --staged"
 		}
 	},
 	"lint-staged": {
 		"src/**": [
 			"prettier --config .prettierrc.js --write",
-			"eslint --fix",
-			"git add"
+			"eslint --fix"
 		]
 	},
 	"dependencies": {

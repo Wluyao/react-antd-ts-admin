@@ -22,6 +22,27 @@ module.exports = {
 			}
 		}
 	],
+	globals: {
+		NodeJS: true,
+		require: true,
+		'$request':true,
+		
+	},
+	settings: {
+		// 自动发现React的版本，从而进行规范react代码
+		react: {
+			pragma: 'React',
+			version: 'detect'
+		}
+	},
+	parserOptions: {
+		// 指定ESLint可以解析JSX语法
+		ecmaVersion: 2019,
+		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true
+		}
+	},
 	rules: {
 		'react-hooks/rules-of-hooks': 2, // 检查 Hook 的规则
 		'react-hooks/exhaustive-deps': 2, // 检查 effect 的依赖
@@ -132,27 +153,9 @@ module.exports = {
 		'react/no-find-dom-node': 0,
 		'@typescript-eslint/no-non-null-assertion': 0, // 允许用断言
 		'@typescript-eslint/no-inferrable-types': 0,
-		'@typescript-eslint/ban-types': 0, // 允许function直接作为类型标识
+		'@typescript-eslint/ban-types': 0,       // 允许function直接作为类型标识
 		'@typescript-eslint/no-empty-interface': 0,
-		'@typescript-eslint/prefer-as-const': 0
-	},
-	globals: {
-		NodeJS: true,
-		require: true
-	},
-	settings: {
-		// 自动发现React的版本，从而进行规范react代码
-		react: {
-			pragma: 'React',
-			version: 'detect'
-		}
-	},
-	parserOptions: {
-		// 指定ESLint可以解析JSX语法
-		ecmaVersion: 2019,
-		sourceType: 'module',
-		ecmaFeatures: {
-			jsx: true
-		}
+		'@typescript-eslint/prefer-as-const': 0,
+		'@typescript-eslint/explicit-module-boundary-types': 'off'  	// ts每个函数都要显式声明返回值
 	}
 }

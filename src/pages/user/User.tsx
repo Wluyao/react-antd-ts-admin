@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Button, Divider, Input, Row, Col, Modal, Popconfirm, Table } from 'antd'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import constantMng from '@/utils/constant-mng'
@@ -28,18 +28,18 @@ const User = () => {
 	// 当前正在编辑的用户的id
 	const [userId, setUserId] = useState<number>(0)
 
-	// 获取用户列表
-	useEffect(() => {
-		getUserList()
-	}, [params, getUserList])
-
-	const getUserList = async () => {
+	const getUserList = useCallback(async () => {
 		setLoading(true)
 		const res = await service.getUserList(params)
 		setLoading(false)
 		setList(res.list)
 		setTotal(res.total)
-	}
+	}, [params])
+
+	// 获取用户列表
+	useEffect(() => {
+		getUserList()
+	}, [getUserList])
 
 	// 搜索
 	const handleSearch = (keyword: string) => {
@@ -61,8 +61,8 @@ const User = () => {
 	const handleDeleteSingle = async (record: IUser) => {
 		const { id, name } = record
 		await service.deleteUser(id)
-		await getUserList()
 		$message.success(`成功删除用户“${name}”！`)
+		//  getUserList()
 	}
 
 	// 批量删除
@@ -75,8 +75,8 @@ const User = () => {
 				content: names,
 				onOk: async () => {
 					await service.deleteUser(ids)
-					await getUserList()
 					$message.success(`成功删除用户“${names}”！`)
+					//  getUserList()
 				}
 			})
 		} else {

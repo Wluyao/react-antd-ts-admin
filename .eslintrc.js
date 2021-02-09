@@ -12,21 +12,12 @@ module.exports = {
 		node: false,
 		es6: true
 	},
-	// overrides: [
-	// 	{
-	// 		files: ['*.ts', '*.tsx'],
-	// 		rules: {
-	// 			'@typescript-eslint/no-unused-expressions': 2,
-	// 			'no-unused-expressions': 'off'
-	// 		}
-	// 	}
-	// ],
 	globals: {
 		NodeJS: true,
 		require: true,
+		process: true,
 		$request: true,
-		$message: true,
-		process: true
+		$message: true
 	},
 	settings: {
 		// 自动发现React的版本，从而进行规范react代码
@@ -44,8 +35,6 @@ module.exports = {
 		}
 	},
 	rules: {
-		'react-hooks/rules-of-hooks': 2, // 检查 Hook 的规则
-		'react-hooks/exhaustive-deps': 2, // 检查 effect 的依赖
 		quotes: ['error', 'single'], // 强制使用单引号
 		semi: ['error', 'never'], // 要求或禁止使用分号而不是 ASI
 		camelcase: 0, // 双峰驼命名格式
@@ -71,17 +60,6 @@ module.exports = {
 		'no-var': 2, // 禁止使用var
 		'no-multiple-empty-lines': [1, { max: 2 }], // 空行最多不能超过2行
 		'no-extra-semi': 'error', // 禁止不必要的分号
-		'array-bracket-spacing': [2, 'never'], // 是否允许非空数组里面有多余的空格
-		'linebreak-style': ['error', 'unix'], // 强制使用一致的换行风格
-		'brace-style': [2, '1tbs', { allowSingleLine: true }], // if while function 后面的{必须与if在同一行，java风格。
-		'comma-dangle': 0, // 数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗号，
-		'comma-spacing': [2, { before: false, after: true }], // 控制逗号前后的空格
-		'computed-property-spacing': [2, 'never'], // 以方括号取对象属性时，[ 后面和 ] 前面是否需要空格, 可选参数 never, always
-		'use-isnan': 2, // 禁止比较时使用NaN，只能用isNaN()
-		'default-case': 2, // switch语句最后必须有default
-		'newline-after-var': 0, // 变量声明后是否需要空一行
-		'max-depth': [2, 4], // 嵌套块深度最多四层
-		'max-params': [2, 5], // 函数最多只能有4个参数
 		'no-else-return': 2, // 如果if语句里面有return,后面不能跟else语句，禁止出现 if (cond) { return a } else { return b }，应该写为 if (cond) { return a } return b
 		'no-eq-null': 2, // 禁止对null使用==或!=运算符
 		'no-iterator': 2, // 禁止使用__iterator__ 属性
@@ -91,8 +69,35 @@ module.exports = {
 		'no-self-compare': 2, // 不能比较自身
 		'no-unused-vars': [2, { vars: 'all', args: 'none' }], // 不能有声明后未被使用的变量或参数
 		'no-use-before-define': 0, // 未定义前不能使用
-		'valid-typeof': 2, // 无效的类型判断
-		'wrap-iife': [2, 'inside'], // 立即执行函数表达式的小括号风格 // 注释的斜线和星号后要加空格
+		'no-await-in-loop': 2, // 禁止将 await 写在循环里
+		'no-class-assign': 2, // class定义的类名不得与其它变量重名
+		'no-dupe-args': 2, // 函数参数禁止重名
+		'no-duplicate-case': 2, // 禁止 switch 中出现相同的 case
+		'no-duplicate-imports': 2, // 禁止重复 import
+		'no-empty-function': 0, // 禁止空的 function,包含注释的情况下允许
+		'no-empty-pattern': 2, // 禁止解构中出现空 {} 或 []
+		'no-ex-assign': 2, // catch 定义的参数禁止赋值
+		'no-extend-native': [2, { exceptions: ['Array', 'Object'] }], // 禁止扩展原生对象
+		'no-extra-parens': [2, 'functions'], // 禁止额外的括号，仅针对函数体
+		'no-floating-decimal': 2, // 不允许使用 2. 或 .5 来表示数字，需要用 2、2.0、0.5 的格式
+		'no-func-assign': 2, // 禁止对函数声明重新赋值
+		'no-implied-eval': 2, // 禁止在 setTimeout 和 setInterval 中传入字符串，因会触发隐式 eval
+		'no-multi-assign': 2, // 禁止连等赋值
+		'array-bracket-spacing': [2, 'never'], // 是否允许非空数组里面有多余的空格
+		'linebreak-style': ['error', 'unix'], // 强制使用一致的换行风格
+		'brace-style': [2, '1tbs', { allowSingleLine: true }], // if while function 后面的{必须与if在同一行，java风格。
+		'comma-dangle': 0,                   // 数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗号，
+		'comma-spacing': [2, { before: false, after: true }], // 控制逗号前后的空格
+		'computed-property-spacing': [2, 'never'],  // 以方括号取对象属性时，[ 后面和 ] 前面是否需要空格, 可选参数 never, always
+		'use-isnan': 2,           // 禁止比较时使用NaN，只能用isNaN()
+		'default-case': 2,        // switch语句最后必须有default
+		'newline-after-var': 0,         // 变量声明后是否需要空一行
+		'max-depth': [2, 4],         // 嵌套块深度最多四层
+		'max-params': [2, 5],           // 函数最多只能有4个参数
+		'valid-typeof': 2,           // 无效的类型判断
+		'wrap-iife': [2, 'inside'],       // 立即执行函数表达式的小括号风格     注释的斜线和星号后要加空格
+		'react-hooks/rules-of-hooks': 'error',    // 检查 Hook 的规则
+		'react-hooks/exhaustive-deps': 'warn',     // 检查 effect 的依赖
 		'spaced-comment': [
 			2,
 			'always',
@@ -122,21 +127,9 @@ module.exports = {
 				capIsNew: false // 允许大写开头的函数直接执行
 			}
 		],
-		'no-await-in-loop': 2, // 禁止将 await 写在循环里
-		'no-class-assign': 2, // class定义的类名不得与其它变量重名
-		'no-dupe-args': 2, // 函数参数禁止重名
-		'no-duplicate-case': 2, // 禁止 switch 中出现相同的 case
-		'no-duplicate-imports': 2, // 禁止重复 import
-		'no-empty-function': 0, // 禁止空的 function,包含注释的情况下允许
-		'no-empty-pattern': 2, // 禁止解构中出现空 {} 或 []
-		'no-ex-assign': 2, // catch 定义的参数禁止赋值
-		'no-extend-native': [2, { exceptions: ['Array', 'Object'] }], // 禁止扩展原生对象
-		'no-extra-parens': [2, 'functions'], // 禁止额外的括号，仅针对函数体
-		'no-floating-decimal': 2, // 不允许使用 2. 或 .5 来表示数字，需要用 2、2.0、0.5 的格式
-		'no-func-assign': 2, // 禁止对函数声明重新赋值
-		'no-implied-eval': 2, // 禁止在 setTimeout 和 setInterval 中传入字符串，因会触发隐式 eval
-		'no-multi-assign': 2, // 禁止连等赋值
 		'react/prop-types': 0, // 在TS中可以禁掉，不然函数式组件需要这样写 const Com: React.FC<IProps> = (props:IProps)=>{}
+		'react/display-name': 0,
+		'react/no-find-dom-node': 0,
 		'@typescript-eslint/explicit-function-return-type': [
 			'off',
 			{
@@ -150,8 +143,6 @@ module.exports = {
 		'@typescript-eslint/no-use-before-define': 0, // mapStateToProps在之前就用到(typeof推断类型)
 		'@typescript-eslint/camelcase': 0, // 驼峰命名格式
 		'@typescript-eslint/no-empty-function': 0, // 给函数默认值可以为空
-		'react/display-name': 0,
-		'react/no-find-dom-node': 0,
 		'@typescript-eslint/no-non-null-assertion': 0, // 允许用断言
 		'@typescript-eslint/no-inferrable-types': 0,
 		'@typescript-eslint/ban-types': 0, // 允许function直接作为类型标识

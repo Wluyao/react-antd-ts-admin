@@ -1,3 +1,7 @@
+/**
+ * 文件处理
+ */
+
 // 文件大小
 enum FileSizes {
 	'K' = 1024,
@@ -6,27 +10,8 @@ enum FileSizes {
 	'T' = 1099511627776
 }
 
-// 文件图标
-enum Icons {
-	'doc' = 'iconword',
-	'docx' = 'iconword',
-	'xls' = 'iconexcel',
-	'xlsx' = 'iconexcel',
-	'ppt' = 'iconppt',
-	'pptx' = 'iconppt',
-	'pdf' = 'iconpdf',
-	'zip' = 'iconzip',
-	'rar' = 'iconzip',
-	'jpg' = 'iconimage',
-	'jpeg' = 'iconimage',
-	'png' = 'iconimage',
-	'gif' = 'iconimage',
-	'bmp' = 'iconimage',
-	'file' = 'iconcolorfile'
-}
-
 // 计算文件大小
-function calcFileSize(fileByte: number): string {
+export const calcFileSize = (fileByte: number): string => {
 	const KB = FileSizes.K
 	const MB = FileSizes.M
 	const GB = FileSizes.G
@@ -52,7 +37,7 @@ function calcFileSize(fileByte: number): string {
 }
 
 // 获取文件后缀
-function getFileSuffix(fileName: string): string {
+export const getFileSuffix = (fileName: string): string => {
 	const pointIndex: number = fileName.lastIndexOf('.')
 	let suffix: string
 	if (pointIndex > -1) {
@@ -63,14 +48,8 @@ function getFileSuffix(fileName: string): string {
 	return suffix
 }
 
-// 获取文件图标
-function getFileIcon(fileName: string): string {
-	const suffix: string = getFileSuffix(fileName)
-	return Icons[suffix]
-}
-
-// 下载文件
-function downloadByURI(data: string, fileName: string, header: string = '') {
+// 下载文件(base64)
+export const downloadByURI = (data: string, fileName: string, header: string = '') => {
 	const link = document.createElement('a')
 	link.style.display = 'none'
 	link.href = header + data
@@ -80,6 +59,15 @@ function downloadByURI(data: string, fileName: string, header: string = '') {
 	document.body.removeChild(link)
 }
 
-function downloadByBlob() {}
-
-export { calcFileSize, getFileIcon, downloadByURI, downloadByBlob }
+// 下载文件(blob)
+export const downloadByBlob = (binaryString, fileName: string) => {
+	const blob = new Blob([binaryString], { type: 'application/octet-stream' })
+	const link = document.createElement('a')
+	link.href = window.URL.createObjectURL(blob)
+	link.download = fileName
+	link.click()
+	//延时释放
+	setTimeout(() => {
+		window.URL.revokeObjectURL(link.href)
+	}, 100)
+}

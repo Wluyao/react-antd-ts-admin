@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { tupleStr } from '@/utils/core'
 
 const Types = tupleStr('mobile', 'email', 'IDCard')
@@ -73,8 +74,7 @@ let validators: IValidator[] = []
 function addValidator(value: any, rules: IRule[]) {
 	rules.forEach(rule => {
 		const message = rule.message
-		delete rule.message
-		let strategy: string | undefined = Object.keys(rule)[0]
+		let strategy: string | undefined = Object.keys(_.omit(rule, ['message']))[0]
 
 		if (strategy === 'type') {
 			strategy = rule.type

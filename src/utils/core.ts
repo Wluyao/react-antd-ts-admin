@@ -1,10 +1,4 @@
-/**
- * 生成指定区间的随机整数
- * @param {Number} min 最小数
- * @param {Number} max 最大数
- * @return {Number}
- */
-export const randomNum = (min: number, max: number): number => Math.floor(min + Math.random() * (max - min + 1))
+import _ from 'lodash'
 
 /**
  * 生成guid
@@ -98,25 +92,6 @@ export const loadScript = (src: string, callback: (err: any, res: any) => void) 
 			callback(new Error(`“${src}”加载失败`), script)
 		}
 	}
-}
-
-/**
- * 将数值使用逗号隔开，一般用于金额的输入
- */
-export const getCommaNumber = (value: any) => {
-	const list = value.toString().split('.')
-	const prefix = list[0].charAt(0) === '-' ? '-' : ''
-	let num = prefix ? list[0].slice(1) : list[0]
-	let result = ''
-	while (num.length > 3) {
-		result = `,${num.slice(-3)}${result}`
-		num = num.slice(0, num.length - 3)
-	}
-	if (num) {
-		result = num + result
-	}
-	const listSecond = list[1] ? '.' + list[1] : ''
-	return `${prefix}${result}${listSecond}`
 }
 
 // 方便生成联合类型

@@ -2,7 +2,10 @@ import config from '@/config'
 import { tupleStr } from '@/utils/core'
 
 // 项目中所有websocket事件名称
-const eventName = tupleStr('paySignMoney')
+const eventName = tupleStr(
+	// 支付费用
+	'pay_sign_money'
+)
 
 interface SocketEvent {
 	name: EventName
@@ -150,4 +153,4 @@ useEffect(() => {
 ```
  */
 
-export { webSocketManager, WebsocketManager }
+export default webSocketManager

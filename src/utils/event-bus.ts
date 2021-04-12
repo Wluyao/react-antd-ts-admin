@@ -1,7 +1,12 @@
 import { tupleStr } from './core'
 
 // 项目中所有自定义事件名称
-const eventName = tupleStr('over')
+const eventName = tupleStr(
+	// 设置模式
+	'change_mode',
+	// 设置主题
+	'change_theme'
+)
 
 type EventName = typeof eventName[number]
 
@@ -39,5 +44,16 @@ class EventBus {
 }
 
 const eventBus = new EventBus()
+
+/**
+ * @example
+
+```
+useEffect(() => {
+	const removeHandler = eventEmitter.on('change_mode', () => {})
+	return removeHandler
+}, [])
+```
+ */
 
 export default eventBus

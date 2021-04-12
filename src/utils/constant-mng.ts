@@ -1,6 +1,8 @@
-// 系统常量管理
 import { tupleStr } from '@/utils/core'
 
+/**
+ * 系统常量管理
+ */
 interface IItem {
 	id: number
 	name: string
@@ -92,19 +94,18 @@ export class ConstantMng {
 		const groupList = this.data[groupName]
 		if (groupList) {
 			return groupList
-		} else {
-			return [
-				{
-					id: 9000,
-					name: groupName + '.ID-1'
-				},
-				{
-					id: 9001,
-					name: groupName + '.ID-2'
-				}
-			]
-			// throw new Error(`表“${groupName}”不存在`);
 		}
+		return [
+			{
+				id: 9000,
+				name: groupName + '.ID-1'
+			},
+			{
+				id: 9001,
+				name: groupName + '.ID-2'
+			}
+		]
+		// throw new Error(`表“${groupName}”不存在`);
 	}
 
 	/**

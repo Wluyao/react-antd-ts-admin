@@ -33,11 +33,11 @@ export const getDecimal = (value: number | string): number => {
 
 /**
  * 数值录入
- * @param {String}} source     输入的值
- * @param {Boolean} minus      正负数处理。-1只能输入负数；0正负数都可以；1只能输入正数
+ * @param {String} source     输入的值
+ * @param {Boolean} sign      正负数处理。-1只能输入负数；0正负数都可以；1只能输入正数
  * @param {Number}  decimals   保留几位小数。不传参不对小数进行处理，0表示整数。
  */
-export const inputNumber = (source: string, sign: number = -1 | 0 | 1, decimals?: number): string => {
+export const inputNumber = (source: string, sign: -1 | 0 | 1 = 0, decimals?: number): string => {
 	let value = source.replace(/^(\-)*\D*(\d*(?:\.\d*)?).*$/g, '$1$2')
 	// 正负数处理
 	if (sign === 1) {

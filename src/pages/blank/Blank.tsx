@@ -1,13 +1,10 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react'
+import { observer } from 'mobx-react'
 
 import './style.less'
 
 const Blank: React.FC = () => {
-	return (
-		<div className="title">
-			<p>ffff</p>
-		</div>
-	)
+	return <div className="title"></div>
 }
 
-export default Blank
+export default observer(Blank)

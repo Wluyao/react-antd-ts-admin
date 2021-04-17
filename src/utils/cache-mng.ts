@@ -1,11 +1,11 @@
-interface ICachedData {
+interface ICache {
 	data: any
 	timer?: number
 	startTime: number
 }
 
-class Cache {
-	caches = new Map<string, ICachedData>()
+class CacheMng {
+	caches = new Map<string, ICache>()
 
 	setItem(key: string, data: any, cacheTime: number = 0) {
 		const currentCache = this.caches.get(key)
@@ -41,6 +41,6 @@ class Cache {
 	}
 }
 
-const cache = new Cache()
+const cacheMng = new CacheMng()
 
-export default cache
+export default cacheMng

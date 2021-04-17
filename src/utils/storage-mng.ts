@@ -10,7 +10,7 @@ const localKeyName = tupleStr(
 	'debt_guide_visible'
 )
 
-// 项目中所有存春在sessionStorage中的数据的名称
+// 项目中所有存储在sessionStorage中的数据的名称
 const sessionKeyName = tupleStr()
 
 type localKeyName = typeof localKeyName[number]
@@ -32,17 +32,18 @@ class StorageMng {
 		try {
 			this.mode.setItem(`${this.prefix}${keyName}`, JSON.stringify(value))
 		} catch (err) {
-			console.error('Storage set error', err)
+			console.warn(`Storage ${keyName} set error`, err)
 		}
 	}
 
 	public getItem(keyName: keyName) {
-		const result = this.mode.getItem(`${this.prefix}${keyName}`) || ''
+		const result = this.mode.getItem(`${this.prefix}${keyName}`)
 		try {
-			return JSON.parse(result)
+			return result ? JSON.parse(result) : result
 		} catch (err) {
-			console.warn('Storage set error', err)
-			return result
+			console.warn(`Storage ${keyName} get error`, err)
+			// 如果 parse 错误，代表这个存储错误，认为就是没有这个存储，保持和没存储的表现一致，返回 null
+			return null
 		}
 	}
 

@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from 'axios'
+import { message } from 'antd'
 import config from '@/config'
 
 export class Request {
@@ -75,7 +76,7 @@ export class Request {
 				return config
 			},
 			err => {
-				$message.error('请求失败')
+				message.error('请求失败')
 				return Promise.reject(err)
 			}
 		)
@@ -89,12 +90,12 @@ export class Request {
 				if (code === 200) {
 					return data
 				} else {
-					$message.error(msg || '获取数据失败')
+					message.error(msg || '获取数据失败')
 					return Promise.reject(res)
 				}
 			},
 			err => {
-				$message.error('服务器响应失败')
+				message.error('服务器响应失败')
 				return Promise.reject(err)
 			}
 		)

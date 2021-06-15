@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Drawer, Form, Input, Radio, Checkbox, Button } from 'antd'
+import { Drawer, Form, Input, Radio, Checkbox, Button ,message} from 'antd'
 import service from '../service'
 import constantMng from '@/utils/constant-mng'
 
@@ -38,15 +38,15 @@ const Edit: React.FC<IProps> = props => {
 
 	const handleSubmit = (e: any) => {
 		if (id) {
-			$message.success('修改成功')
+			message.success('修改成功')
 		} else {
-			$message.success('新增成功')
+			message.success('新增成功')
 		}
 		onClose()
 	}
 
 	const handleFinishFailed = () => {
-		$message.warning('请按照正确格式填写信息！')
+		message.warning('请按照正确格式填写信息！')
 	}
 
 	return (

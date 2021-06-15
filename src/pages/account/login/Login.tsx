@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Form, Input, Button, Row, Col } from 'antd'
 import { UserOutlined, LockOutlined, SafetyOutlined } from '@ant-design/icons'
 import accountStore from '@/store/account'
+import request from '@/utils/request'
 import { createCaptcha } from './util'
 import service from './service'
 import './style.less'
@@ -29,7 +30,7 @@ const Login: React.FC = () => {
 	const handleFinish = async values => {
 		const data = await service.login(values)
 		const token = data.token
-		$request.setHeader({ Authorization: token })
+		request.setHeader({ Authorization: token })
 		accountStore.setToken(token)
 		history.replace('/dashboard')
 	}

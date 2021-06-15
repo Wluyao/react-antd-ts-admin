@@ -28,4 +28,10 @@ const ENV_CONFIG_MAP = {
 	production: CONFIG_PRO
 }
 
-export default { ...CONFIG_BASE, ...ENV_CONFIG_MAP[process.env.NODE_ENV!] }
+// export default { ...CONFIG_BASE, ...ENV_CONFIG_MAP[process.env.NODE_ENV!] }
+export default {
+	...CONFIG_BASE,
+	...{
+		domain: 'http://api'
+	}
+}

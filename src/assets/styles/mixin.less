@@ -12,3 +12,28 @@
   }
 }
 
+.border-bottom(@left: 10px, @right: 10px) {
+  position: relative;
+  &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: @left;
+      right: @right;
+      background-color: #dcdfe6;
+      height: 1px;
+  }
+}
+
+.border-top(@left, @right) {
+  position: relative;
+  &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: @left;
+      right: @right;
+      background-color: #dcdfe6;
+      height: 1px;
+  }
+}

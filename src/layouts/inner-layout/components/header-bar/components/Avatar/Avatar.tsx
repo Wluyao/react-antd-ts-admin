@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Menu, Dropdown, Avatar } from 'antd'
+import { Menu, Dropdown, Avatar,message } from 'antd'
 import { UserOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
 import accountStore from '@/store/account'
 import './style.less'
@@ -19,7 +19,7 @@ const AvatarMenu: React.FC = () => {
 				history.replace('/account/login')
 				break
 			default:
-				$message.warning('没有该操作')
+				message.warning('没有该操作')
 		}
 	}
 

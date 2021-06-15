@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { Button, Divider, Input, Row, Col, Modal, Popconfirm, Table } from 'antd'
+import { Button, Divider, Input, Row, Col, Modal, Popconfirm, Table,message } from 'antd'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import constantMng from '@/utils/constant-mng'
 import Edit from './components/Edit'
@@ -61,7 +61,7 @@ const User = () => {
 	const handleDeleteSingle = async (record: IUser) => {
 		const { id, name } = record
 		await service.deleteUser(id)
-		$message.success(`成功删除用户“${name}”！`)
+		message.success(`成功删除用户“${name}”！`)
 		//  getUserList()
 	}
 
@@ -75,12 +75,12 @@ const User = () => {
 				content: names,
 				onOk: async () => {
 					await service.deleteUser(ids)
-					$message.success(`成功删除用户“${names}”！`)
+					message.success(`成功删除用户“${names}”！`)
 					//  getUserList()
 				}
 			})
 		} else {
-			$message.warning('请选择要删除的用户')
+			message.warning('请选择要删除的用户')
 		}
 	}
 

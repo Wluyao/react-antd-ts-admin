@@ -1,6 +1,8 @@
+import request from '@/utils/request'
+
 // 登录
 const login = async (params: { accountName: string; password: string; captcha: string }) => {
-	const res = await $request.post('/login', { params, responseType: 'json' })
+	const res = await request.post('/login', { params, responseType: 'json' })
 	return {
 		token: res.token
 	}

@@ -14,7 +14,7 @@ class CacheMng {
 		}
 		let timer
 		if (cacheTime > -1) {
-			timer = setTimeout(() => {
+			timer = window.setTimeout(() => {
 				this.caches.delete(key)
 			}, cacheTime)
 		}

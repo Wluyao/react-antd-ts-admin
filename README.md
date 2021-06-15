@@ -7,9 +7,9 @@
 -   React -（UI 框架）
 -   Ant-Design - （组件库）
 -   TypeScript - （静态类型）
--   Webpack
 -   axios
 -   less
+-   vite
 
 [线上地址](https://wluyao.github.io/admin/dist/index.html)
 
@@ -75,10 +75,7 @@
 ## 目录结构
 
 ```
-|-- config              webpack配置文件
-|-- dist                webpack构建目录
 |-- docs                文档
-|-- public              html模板
 |-- src                 源码目录
 |	|-- api                   接口
 |	|-- assets                静态资源文件，会被webpack解析为模块依赖
@@ -93,8 +90,7 @@
 |	|-- utils                 全局公用方法
 |	|-- App.tsx								根组件
 |	|-- index.tsx							入口文件
-|-- static              第三方纯静态资源，不会被webpack处理
-|-- .babelrc            babel-loader 配置
+|-- static              第三方纯静态资源
 |-- .editorconfig       IDE配置
 |-- .gitignore          git提交时忽略的文件
 |--	package.json        项目基本信息
@@ -107,8 +103,8 @@
 ### 运行
 
 ```
-npm run start
-yarn start
+npm run dev
+yarn dev
 ```
 
 ### 构建

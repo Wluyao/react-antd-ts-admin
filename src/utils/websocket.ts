@@ -3,7 +3,7 @@ import { tupleStr } from '@/utils/core'
 
 // 项目中所有websocket事件名称
 const eventName = tupleStr(
-	// 支付费用
+	// 支付签名费用
 	'pay_sign_money'
 )
 

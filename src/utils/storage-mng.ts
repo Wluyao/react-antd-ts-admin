@@ -3,11 +3,11 @@ import { tupleStr } from '@/utils/core'
 // 项目中所有存储在localStorage中的数据的名称
 const localKeyName = tupleStr(
 	// 还款方式。 free:自由还，day：按天还，month：按月还
-	'repay_mode',
-	// 当前店铺信息
-	'cur_shop',
-	// 是否展示赊账会员详情中当前欠款的指引。true：显示，false：隐藏
-	'debt_guide_visible'
+	'repay_type',
+	// 当前用户信息
+	'account_info',
+	// 是否展示会员详情。true：显示，false：隐藏
+	'customer_detail_visible'
 )
 
 // 项目中所有存储在sessionStorage中的数据的名称

@@ -1,3 +1,14 @@
+import { tupleStr } from '@/utils/core'
+
+const cacheNames = tupleStr(
+	// 货品列表
+	'goods_list',
+	// 用户列表
+	'use_list'
+)
+
+type CacheName = typeof cacheNames[number]
+
 interface ICache {
 	data: any
 	timer?: number
@@ -5,16 +16,16 @@ interface ICache {
 }
 
 class CacheMng {
-	caches = new Map<string, ICache>()
+	caches = new Map<CacheName, ICache>()
 
-	setItem(key: string, data: any, cacheTime: number = 0) {
+	setItem(key: CacheName, data: any, cacheTime: number = 0) {
 		const currentCache = this.caches.get(key)
 		if (currentCache?.timer) {
 			clearTimeout(currentCache.timer)
 		}
 		let timer
 		if (cacheTime > -1) {
-			timer = window.setTimeout(() => {
+			timer = setTimeout(() => {
 				this.caches.delete(key)
 			}, cacheTime)
 		}
@@ -25,14 +36,14 @@ class CacheMng {
 		})
 	}
 
-	getItem(key: string) {
+	getItem(key: CacheName) {
 		const currentCache = this.caches.get(key)
 		if (currentCache?.data) {
 			return currentCache.data
 		}
 	}
 
-	removeItem = (key: string) => {
+	removeItem = (key: CacheName) => {
 		const currentCache = this.caches.get(key)
 		if (currentCache) {
 			clearTimeout(currentCache.timer)

@@ -34,8 +34,7 @@ interface IColourIcon {
     [key: string]: string
 }
 
-// 单色图标。
-// key为图标名称，value为本地的图标资源
+// 单色图标。key为图标名称，value为本地的图标资源
 export const BLACK_ICON_MAP: IBlackIcon = {
     menuArticle,
     menuBlank,
@@ -56,3 +55,4 @@ const colourIconNames = tupleStr('money')
 export type BlackIconName = typeof blackIconNames[number]
 export type ColourIconName = typeof colourIconNames[number]
 export type IconName = BlackIconName | ColourIconName
+

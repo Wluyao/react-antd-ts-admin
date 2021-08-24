@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Form, Input, Row, Col, Select } from 'antd'
+import { Form, Input, Row, Col } from 'antd'
 import './style.less'
 
 const Edit: React.FC = () => {
 	// 文章id
 	const routeParams: any = useParams()
+	console.log(routeParams.articleId)
 	// 文章详情
 	const [detail, setDetail] = useState<any>({})
 
@@ -21,6 +22,7 @@ const Edit: React.FC = () => {
 					<Col span={12}>
 						<Form.Item
 							label="标题"
+							name="title"
 							initialValue={detail.title}
 							rules={[{ required: true, message: '请输入文章标题' }]}
 						>
@@ -30,22 +32,24 @@ const Edit: React.FC = () => {
 					<Col span={12}>
 						<Form.Item
 							label="类型"
+							name="type"
 							initialValue={detail.type}
 							rules={[{ required: true, message: '请选择文章类型' }]}
 						>
-							<Select placeholder="请选择文章类型">
-								{TypeList.map(item => (
-									<Select.Option key={item.id} value={item.id}>
-										{item.name}
-									</Select.Option>
-								))}
-							</Select>
+							{/* <Select placeholder="请选择文章类型">
+                  {createOptions(CodeMap.articleType).map((item) => (
+                    <Select.Option key={item.value} value={item.value}>
+                      {item.label}
+                    </Select.Option>
+                  ))}
+                </Select> */}
 						</Form.Item>
 					</Col>
 				</Row>
 
 				<Form.Item
 					label="描述"
+					name="description"
 					initialValue={detail.description}
 					rules={[{ required: true, message: '请输入文章简要描述' }]}
 				>
@@ -58,14 +62,3 @@ const Edit: React.FC = () => {
 }
 
 export default Edit
-
-const TypeList = [
-	{
-		id: 1,
-		name: '新闻'
-	},
-	{
-		id: 2,
-		name: '体育'
-	}
-]

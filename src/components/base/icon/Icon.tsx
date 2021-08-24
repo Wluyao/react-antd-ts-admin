@@ -1,8 +1,8 @@
 import React from 'react'
 import AntdIcon from '@ant-design/icons'
-import { BLACK_ICON_MAP, COLOUR_ICON_MAP, BlackIconName, ColourIconName, IconName } from '@/assets/icons'
+import { BLACK_ICON_MAP, COLOUR_ICON_MAP, IconName } from '@/assets/icons'
 
-export type { BlackIconName, ColourIconName, IconName } from '@/assets/icons'
+export { IconName }
 
 interface IProps {
 	className?: string
@@ -52,7 +52,7 @@ const SvgIcon: React.FC<IProps> = props => {
 		}
 	}
 
-	if (mode === 'black')
+	if (mode === 'black') {
 		return (
 			<AntdIcon
 				className={className}
@@ -64,11 +64,12 @@ const SvgIcon: React.FC<IProps> = props => {
 				onClick={onClick}
 			/>
 		)
+	}
 
 	return (
 		<img
 			className={className}
-			style={{ display: 'block', ...style, width: width || size, height: height || size }}
+			style={{ ...style, width: width || size, height: height || size }}
 			src={COLOUR_ICON_MAP[name]}
 			onClick={onClick}
 			alt={title}

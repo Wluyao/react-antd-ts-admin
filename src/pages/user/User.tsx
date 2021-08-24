@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { Button, Divider, Input, Row, Col, Modal, Popconfirm, Table,message } from 'antd'
+import { Button, Divider, Input, Row, Col, Modal, Popconfirm, Table } from 'antd'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import constantMng from '@/utils/constant-mng'
 import Edit from './components/Edit'
@@ -61,7 +61,7 @@ const User = () => {
 	const handleDeleteSingle = async (record: IUser) => {
 		const { id, name } = record
 		await service.deleteUser(id)
-		message.success(`成功删除用户“${name}”！`)
+		$message.success(`成功删除用户“${name}”！`)
 		//  getUserList()
 	}
 
@@ -75,12 +75,12 @@ const User = () => {
 				content: names,
 				onOk: async () => {
 					await service.deleteUser(ids)
-					message.success(`成功删除用户“${names}”！`)
+					$message.success(`成功删除用户“${names}”！`)
 					//  getUserList()
 				}
 			})
 		} else {
-			message.warning('请选择要删除的用户')
+			$message.warning('请选择要删除的用户')
 		}
 	}
 
@@ -139,16 +139,12 @@ const User = () => {
 				/>
 				<Column title="姓名" dataIndex="name" />
 				<Column title="年龄" dataIndex="age" />
-				<Column
-					title="性别"
-					dataIndex="gender"
-					render={(value, record, index) => constantMng.getNameById('gender', value)}
-				/>
+				<Column title="性别" dataIndex="gender" render={value => constantMng.getNameById('gender', value)} />
 				<Column<IUser>
 					title="操作"
 					dataIndex="operate"
 					width={140}
-					render={(value, record, index) => (
+					render={(value, record) => (
 						<div>
 							<Button type="link" size="small" onClick={handleEdit.bind(null, record.id)}>
 								编辑

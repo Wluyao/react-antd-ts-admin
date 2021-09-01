@@ -41,6 +41,10 @@ const accountInfo = Mock.mock({
 		{
 			id: 6,
 			name: 'user'
+		},
+		{
+			id: 7,
+			name: 'micro-app'
 		}
 	]
 })

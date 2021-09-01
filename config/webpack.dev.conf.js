@@ -32,6 +32,9 @@ module.exports = merge(baseWebpackConfig, {
 		port: 8090,
 		open: true,
 		hot: true,
-		overlay: true
+		overlay: true,
+		headers: {
+			'Access-Control-Allow-Origin': '*'
+		}
 	}
 })

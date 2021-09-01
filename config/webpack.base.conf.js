@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const packageName = require('../package.json').name
 const devMode = process.env.NODE_ENV === 'development'
 
 const resolve = dir => path.resolve(process.cwd(), dir)
@@ -10,6 +11,11 @@ const resolve = dir => path.resolve(process.cwd(), dir)
 module.exports = {
 	entry: {
 		app: resolve('src/index.tsx')
+	},
+	output: {
+		library: `${packageName}-[name]`,
+		libraryTarget: 'umd',
+		jsonpFunction: `webpackJsonp_${packageName}`
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

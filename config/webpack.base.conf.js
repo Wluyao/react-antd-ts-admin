@@ -12,11 +12,6 @@ module.exports = {
 	entry: {
 		app: resolve('src/index.tsx')
 	},
-	output: {
-		library: `${packageName}-[name]`,
-		libraryTarget: 'umd',
-		jsonpFunction: `webpackJsonp_${packageName}`
-	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: resolve('public/index.html'),

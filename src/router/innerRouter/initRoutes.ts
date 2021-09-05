@@ -6,9 +6,8 @@ import chartRoute from './modules/chart'
 import formRoute from './modules/form'
 import userRoute from './modules/user'
 import articleRoute from './modules/article'
-import microAppRoute from './modules/micro-app'
 
-const routeMap = [dashboardRoute, chartRoute, blankRoute, formRoute, userRoute, articleRoute, microAppRoute]
+const routeMap = [dashboardRoute, chartRoute, blankRoute, formRoute, userRoute, articleRoute]
 
 // 根据路由名称获取可访问的路由表
 const filterRouteMap = (routeNames: string[], routeMap: IRoute[]) => {

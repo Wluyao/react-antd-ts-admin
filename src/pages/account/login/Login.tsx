@@ -56,12 +56,12 @@ const Login: React.FC = () => {
 					rules={[
 						{
 							required: true,
-							message: '密码不能为空！'
+							message: '密码不能为空！',
 						},
 						{
 							pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/,
-							message: '密码为6~20位，且需要包含数字和字母！'
-						}
+							message: '密码为6~20位，且需要包含数字和字母！',
+						},
 					]}
 				>
 					<Input
@@ -78,12 +78,12 @@ const Login: React.FC = () => {
 					rules={[
 						{
 							required: true,
-							message: '验证码不能为空！'
+							message: '验证码不能为空！',
 						},
 						{
 							pattern: new RegExp(captcha, 'i'),
-							message: '验证码有误！'
-						}
+							message: '验证码有误！',
+						},
 					]}
 				>
 					<Row>

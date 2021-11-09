@@ -1,8 +1,7 @@
 {
-	"name": "react-webpack-template",
+	"name": "react-antd-ts-admnin",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
 	"keywords": [],
 	"author": "wluyao",
 	"license": "ISC",

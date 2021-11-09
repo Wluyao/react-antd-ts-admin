@@ -41,15 +41,15 @@ const SvgIcon: React.FC<IProps> = props => {
 		title = '',
 		width,
 		height,
-		onClick
+		onClick,
 	} = props
 
 	const iconStyle = {
 		...style,
 		...{
 			fontSize: size,
-			color
-		}
+			color,
+		},
 	}
 
 	if (mode === 'black') {

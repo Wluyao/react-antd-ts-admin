@@ -5,7 +5,7 @@ export class Request {
 	private baseConfig: AxiosRequestConfig = {
 		baseURL: config.domain,
 		headers: {},
-		timeout: 8000
+		timeout: 8000,
 	}
 
 	// axios实例
@@ -28,14 +28,14 @@ export class Request {
 	public get = (url: string, data: any = {}, config: AxiosRequestConfig = {}): Promise<any> =>
 		this.instance({
 			...{ url, method: 'get', params: data },
-			...config
+			...config,
 		})
 
 	// post请求
 	public post = (url: string, data: any = {}, config: AxiosRequestConfig = {}): Promise<any> =>
 		this.instance({
 			...{ url, method: 'post', data },
-			...config
+			...config,
 		})
 
 	// 不经过统一的axios实例的get请求
@@ -43,7 +43,7 @@ export class Request {
 		axios({
 			...this.baseConfig,
 			...{ url, method: 'post', data },
-			...config
+			...config,
 		})
 
 	// 不经过统一的axios实例的post请求
@@ -51,21 +51,21 @@ export class Request {
 		axios({
 			...this.baseConfig,
 			...{ url, method: 'get', params: data },
-			...config
+			...config,
 		})
 
 	// delete请求,后端通过requestBody接收
 	public deleteBody = (url: string, data: any = {}, config: AxiosRequestConfig = {}) =>
 		this.instance({
 			...{ url, method: 'delete', data },
-			...config
+			...config,
 		})
 
 	// delete请求,后端通过后端通过requestParam接收
 	public deleteParam = (url: string, data: any = {}, config: AxiosRequestConfig = {}) =>
 		this.instance({
 			...{ url, method: 'delete', params: data },
-			...config
+			...config,
 		})
 
 	// 请求拦截器

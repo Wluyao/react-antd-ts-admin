@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 /**
  * 生成guid
  */
@@ -130,9 +128,9 @@ export const hexToRgb = (hex: string, opacity: number = 1) => {
 			.map(x => x + x)
 			.join('')
 	const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
-	return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8}, ${
-		parseInt(extendedHex.slice(1), 16) & 0x0000ff
-	}, ${opacity})`
+	return `rgba(${parseInt(extendedHex.slice(1), 16) >> 16}, ${
+		(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8
+	}, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff}, ${opacity})`
 }
 
 /**
